@@ -6,12 +6,15 @@ public class FruitManager : MonoBehaviour
 {
 
     [Header("Elements")]
-    [SerializeField] private GameObject fruitPrefab;
+    [SerializeField] private Fruit fruitPrefab;
     [SerializeField ] private LineRenderer fruitSpawnLine;
+    private Fruit currentFruit;
 
 
     [Header("Settings")]
     [SerializeField] private float fruitsYSpawnPos;
+    private bool canControl;
+    private bool isControlling;
 
 
     [Header("Debug")]
@@ -19,9 +22,8 @@ public class FruitManager : MonoBehaviour
 
     void Start()
     {
+        canControl = true;
         HideLine();
-
-
 
     }
 
@@ -29,6 +31,7 @@ public class FruitManager : MonoBehaviour
     void Update()
 
     {
+        if (canControl) 
         ManagePlayerInput();
 
 
@@ -40,10 +43,16 @@ public class FruitManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             MouseDownCallback();
 
-        else if (Input.GetMouseButton(0)) // Mouse drag event
-            MouseDragCallback();
+        else if (Input.GetMouseButton(0) ) 
+        { 
+            if (isControlling)
+                MouseDragCallback(); 
+            else
+                MouseDownCallback();
+            
+        }
 
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && isControlling)
             MouseUpCallback();
     }
 
@@ -56,11 +65,18 @@ public class FruitManager : MonoBehaviour
         DisplayLine();
         PlaceLineAtClickedPosition();
 
+        SpawnFruit();
+
+        isControlling = true;
 
     }
     private void MouseDragCallback()
     {
         PlaceLineAtClickedPosition();
+
+        currentFruit.MoveTo(new Vector2(GetSpawnPosition().x, fruitsYSpawnPos));
+
+
     }
 
 
@@ -70,13 +86,18 @@ public class FruitManager : MonoBehaviour
     private void MouseUpCallback()
     {
         HideLine();
+        currentFruit.EnablePhysics();
+
+        canControl = false;
+        StartControlTimer();
+        isControlling = false;
     }
 
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
 
-        Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
+        currentFruit = Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
     }
 
 
@@ -119,6 +140,15 @@ public class FruitManager : MonoBehaviour
         fruitSpawnLine.enabled = true;
     }
 
+   
+    private void StartControlTimer()
+    {
+        Invoke("StopControlTimer", 1);
+    }
+    private void StopControlTimer()
+    {
+        canControl = true;
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
