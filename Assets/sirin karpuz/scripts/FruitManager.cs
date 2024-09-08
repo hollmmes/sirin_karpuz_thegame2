@@ -98,6 +98,8 @@ public class FruitManager : MonoBehaviour
         Vector2 spawnPosition = GetSpawnPosition();
 
         currentFruit = Instantiate(fruitPrefabs[Random.Range(0,fruitPrefabs.Length)], spawnPosition, Quaternion.identity);
+
+        currentFruit.name = "Fruit_" + Random.Range(0, 1000);
     }
 
 
