@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Fruit : MonoBehaviour
 {
+
+    [Header("Actions")]
+    public static Action<Fruit> onCollisionWithFruit;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,16 @@ public class Fruit : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.TryGetComponent(out Fruit fruit))
+        {
 
+            onCollisionWithFruit?.Invoke(this);
+
+        }
+
+    }
 
 
 

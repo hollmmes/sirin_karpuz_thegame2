@@ -6,7 +6,7 @@ public class FruitManager : MonoBehaviour
 {
 
     [Header("Elements")]
-    [SerializeField] private Fruit fruitPrefab;
+    [SerializeField] private Fruit[] fruitPrefabs;
     [SerializeField ] private LineRenderer fruitSpawnLine;
     private Fruit currentFruit;
 
@@ -97,7 +97,7 @@ public class FruitManager : MonoBehaviour
     {
         Vector2 spawnPosition = GetSpawnPosition();
 
-        currentFruit = Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
+        currentFruit = Instantiate(fruitPrefabs[Random.Range(0,fruitPrefabs.Length)], spawnPosition, Quaternion.identity);
     }
 
 
@@ -143,7 +143,7 @@ public class FruitManager : MonoBehaviour
    
     private void StartControlTimer()
     {
-        Invoke("StopControlTimer", 1);
+        Invoke("StopControlTimer", .5f);
     }
     private void StopControlTimer()
     {
