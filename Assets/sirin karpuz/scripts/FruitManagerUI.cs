@@ -11,7 +11,6 @@ public class FruitManagerUI : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] private Image nextFruitImage;
-    [SerializeField] private TextMeshProUGUI nextFruitText;
     private FruitManager fruitManager;
 
 
