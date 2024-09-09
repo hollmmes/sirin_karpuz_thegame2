@@ -7,6 +7,8 @@ public class FruitManager : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] private Fruit[] fruitPrefabs;
+    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private Transform fruitsParent;
     [SerializeField ] private LineRenderer fruitSpawnLine;
     private Fruit currentFruit;
 
@@ -19,6 +21,13 @@ public class FruitManager : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool enableGizmos;
+
+    private void Awake()
+    {
+        MergeManager.onMergeProcessed += MergeProcessedCallBack;
+    }
+
+
 
     void Start()
     {
@@ -86,7 +95,8 @@ public class FruitManager : MonoBehaviour
     private void MouseUpCallback()
     {
         HideLine();
-        currentFruit.EnablePhysics();
+        if (currentFruit != null)
+             currentFruit.EnablePhysics();
 
         canControl = false;
         StartControlTimer();
@@ -96,8 +106,13 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
+        Fruit fruitToInstantiate = spawnableFruits[Random.Range(0, spawnableFruits.Length)];
 
-        currentFruit = Instantiate(fruitPrefabs[Random.Range(0,fruitPrefabs.Length)], spawnPosition, Quaternion.identity);
+        currentFruit = Instantiate(
+            fruitToInstantiate,
+            spawnPosition, 
+            Quaternion.identity, 
+            fruitsParent);
 
         currentFruit.name = "Fruit_" + Random.Range(0, 1000);
     }
@@ -151,6 +166,39 @@ public class FruitManager : MonoBehaviour
     {
         canControl = true;
     }
+    private void MergeProcessedCallBack(FruitType fruitType, Vector2 spawnPosition)
+    {
+
+        for (int i = 0; i < fruitPrefabs.Length; i++)
+        {
+            if (fruitPrefabs[i].GetFruitType()== fruitType)
+               { 
+                SpawnMergedFruit(fruitPrefabs[i], spawnPosition);
+                break;
+            }
+
+        }
+
+
+    }
+
+    private void SpawnMergedFruit (Fruit fruit, Vector2 spawnPosition)
+    {
+       Fruit fruitInstance= Instantiate(fruit, spawnPosition, Quaternion.identity,fruitsParent);
+        fruitInstance.EnablePhysics();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

@@ -10,7 +10,7 @@ public class Fruit : MonoBehaviour
 
 
     [Header("Actions")]
-    public static Action<Fruit> onCollisionWithFruit;
+    public static Action<Fruit, Fruit> onCollisionWithFruit;
 
 
 
@@ -34,6 +34,7 @@ public class Fruit : MonoBehaviour
     public void EnablePhysics()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Collider2D>().enabled = true;
 
     }
 
@@ -50,7 +51,7 @@ public class Fruit : MonoBehaviour
             if(otherFruit.GetFruitType() != fruitType)
                 return;
         
-            onCollisionWithFruit?.Invoke(this);
+            onCollisionWithFruit?.Invoke(this, otherFruit);
 
         }
 

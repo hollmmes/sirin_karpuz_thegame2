@@ -4,8 +4,13 @@ using UnityEngine;
 
 public enum FruitType
 {
-    Blueberry = 0,
-    Cherry = 1,
-    Plum = 2,
-    Peach= 3,
+    Blueberry,
+    Cherry,
+    Plum,
+    Kiwi,
+    Peach,
+    Orange,
+    Melon,
+    Coconut,
+    Watermelon
 }
