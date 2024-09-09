@@ -68,9 +68,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.035165634}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.46483442
 --- !u!50 &5923187057833283129
 Rigidbody2D:
   serializedVersion: 4
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb6cc7bb0e47e4b8e9a4ee3697c88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8021983075849829526}
   fruitType: 5
 --- !u!95 &8117140747537357150
 Animator:
@@ -205,8 +206,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fc0a378073dcc53429a7adeee62b9fd1, type: 3}
-  m_Color: {r: 1, g: 0.6687182, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5911fc98541a3dd4a9f9cc1487e4fad0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

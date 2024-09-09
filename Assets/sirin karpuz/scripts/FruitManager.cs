@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,20 @@ public class FruitManager : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float fruitsYSpawnPos;
+    [SerializeField] private float spawnDelay;
     private bool canControl;
     private bool isControlling;
+
+    [Header("Next fruit settins")]
+    private int nextFruitIndex;
 
 
     [Header("Debug")]
     [SerializeField] private bool enableGizmos;
+
+    [Header("Actions")]
+    public static Action onNextFruitIndexSet;
+
 
     private void Awake()
     {
@@ -31,9 +40,10 @@ public class FruitManager : MonoBehaviour
 
     void Start()
     {
+        SetNextFruitIndex();
+        
         canControl = true;
         HideLine();
-
     }
 
     // Update is called once per frame
@@ -106,7 +116,7 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
-        Fruit fruitToInstantiate = spawnableFruits[Random.Range(0, spawnableFruits.Length)];
+        Fruit fruitToInstantiate = spawnableFruits[nextFruitIndex];
 
         currentFruit = Instantiate(
             fruitToInstantiate,
@@ -114,10 +124,27 @@ public class FruitManager : MonoBehaviour
             Quaternion.identity, 
             fruitsParent);
 
-        currentFruit.name = "Fruit_" + Random.Range(0, 1000);
+        SetNextFruitIndex();
+
+
+
+
+        currentFruit.name = "Fruit_" + UnityEngine.Random.Range(0, 1000);
     }
 
-
+    private void SetNextFruitIndex()
+    {
+        nextFruitIndex = UnityEngine.Random.Range(0, spawnableFruits.Length);
+        onNextFruitIndexSet?.Invoke();
+    }
+    public string GetNextFruitName()
+    {
+        return spawnableFruits[nextFruitIndex].name;
+    }
+    public Sprite GetNextFruitSprite()
+    {
+        return spawnableFruits[nextFruitIndex].GetSprite();
+    }
 
 
     private Vector2 GetClickedWorldPosition()
@@ -160,7 +187,7 @@ public class FruitManager : MonoBehaviour
    
     private void StartControlTimer()
     {
-        Invoke("StopControlTimer", .5f);
+        Invoke("StopControlTimer", spawnDelay);
     }
     private void StopControlTimer()
     {
