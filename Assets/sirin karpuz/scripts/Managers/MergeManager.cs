@@ -15,12 +15,21 @@ public class MergeManager : MonoBehaviour
     [Header("Settins")]
     Fruit lastSender;
 
-    void Start()
+    void Awake()
     {
         Fruit.onCollisionWithFruit += CollisionBetweenFruitsCallback;
     }
 
-    // Update is called once per frame
+    private void OnDestroy()
+    {
+        Fruit.onCollisionWithFruit -= CollisionBetweenFruitsCallback;
+    }
+
+
+    void Start()
+    {
+        
+    }
     void Update()
     {
         

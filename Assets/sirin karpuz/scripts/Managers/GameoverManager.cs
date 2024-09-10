@@ -89,7 +89,8 @@ public class GameoverManager : MonoBehaviour
     }
     private void Gameover()
     {
-        Debug.LogError("Oyun Bitti");
         isGameOver = true;
+
+        GameManager.Instance.SetGameoverState();
     }
 }

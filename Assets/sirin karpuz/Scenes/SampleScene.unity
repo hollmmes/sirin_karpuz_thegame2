@@ -928,7 +928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1033042715}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1784452352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: PlayButtonCallBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1033042715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,7 +1639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1583841577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1784452352}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: NextButtonCallBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1583841577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,11 +2245,10 @@ MonoBehaviour:
   - {fileID: 884267042833660280, guid: b3ead928527970c429b6fa34015c48d4, type: 3}
   - {fileID: 884267042833660280, guid: 6eae162c73be6784eaa3981a6da1cea1, type: 3}
   - {fileID: 884267042833660280, guid: ddc64ea62428fe942ad18578e69f1e4d, type: 3}
-  - {fileID: 884267042833660280, guid: 2f21c54eb61e8d84890098a3ad9a5e7e, type: 3}
   fruitsParent: {fileID: 605313588}
   fruitSpawnLine: {fileID: 1295110730}
   fruitsYSpawnPos: 3
-  spawnDelay: 0.1
+  spawnDelay: 0.5
   enableGizmos: 0
 --- !u!114 &1992346553
 MonoBehaviour:

@@ -35,7 +35,10 @@ public class FruitManager : MonoBehaviour
     {
         MergeManager.onMergeProcessed += MergeProcessedCallBack;
     }
-
+    private void OnDestroy()
+    {
+        MergeManager.onMergeProcessed -= MergeProcessedCallBack;
+    }
 
 
     void Start()
@@ -50,6 +53,11 @@ public class FruitManager : MonoBehaviour
     void Update()
 
     {
+
+        if(!GameManager.Instance.IsGameState())
+            return;
+
+
         if (canControl) 
         ManagePlayerInput();
 

@@ -19,7 +19,10 @@ public class FruitManagerUI : MonoBehaviour
         fruitManager = GetComponent<FruitManager>();
         FruitManager.onNextFruitIndexSet += UpdateNextFruitImage;
     }
-
+    private void OnDestroy()
+    {
+        FruitManager.onNextFruitIndexSet -= UpdateNextFruitImage;
+    }
     void Start()
     {
         

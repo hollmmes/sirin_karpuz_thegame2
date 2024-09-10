@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,9 +9,27 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameoverPanel;
-    void Start()
+
+
+
+    private void Awake()
     {
-        SetMenu();
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+
+
+
+    void Start()
+
+
+    {
+       // SetMenu();
         
     }
 
@@ -19,7 +38,31 @@ public class UIManager : MonoBehaviour
     {
         
     }
+    private void GameStateChangedCallback(GameState gameState)
+    {
 
+        switch (gameState) { 
+        
+        case GameState.Menu:
+            SetMenu();
+            break;
+
+
+        case GameState.Game:
+            SetGame(); 
+            break;
+
+        case GameState.Gameover:
+            SetGameover();
+            break;
+
+
+        }
+
+
+
+
+    }
     private void SetMenu()
     {
         menuPanel.SetActive(true);
@@ -41,5 +84,14 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public void PlayButtonCallBack()
+    {
+        GameManager.Instance.SetGameState();
+        SetGame();
+    }
+    public void NextButtonCallBack()
+    {
+        SceneManager.LoadScene(0);
 
+    }
 }
