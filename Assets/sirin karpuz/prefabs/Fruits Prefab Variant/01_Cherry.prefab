@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 884267042833660280, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: fruitType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_LocalScale.x
@@ -106,7 +106,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6760204873371753750}
   m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 23195bcbd71f2c643a4b6f69fc6b3ca7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
