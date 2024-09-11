@@ -25,13 +25,13 @@ public class MergePushEffect : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void MergeProcessedCallBack(FruitType fruitType, Vector2 mergePos)
@@ -42,7 +42,7 @@ public class MergePushEffect : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if(collider.TryGetComponent(out Fruit fruit))
+            if (collider.TryGetComponent(out Fruit fruit))
             {
                 Vector2 force = ((Vector2)fruit.transform.position - mergePos).normalized;
                 force *= pushMagnitude;
@@ -53,16 +53,15 @@ public class MergePushEffect : MonoBehaviour
         }
     }
 
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (!enableGizmos)
             return;
+
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(pushPosition, pushRadius);
-
     }
-
-}
-
 #endif
+}
