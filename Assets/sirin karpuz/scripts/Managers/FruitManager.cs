@@ -7,8 +7,7 @@ public class FruitManager : MonoBehaviour
 {
 
     [Header("Elements")]
-    [SerializeField] private Fruit[] fruitPrefabs;
-    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private SkinDataSO skinData;
     [SerializeField] private Transform fruitsParent;
     [SerializeField ] private LineRenderer fruitSpawnLine;
     private Fruit currentFruit;
@@ -124,7 +123,7 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
-        Fruit fruitToInstantiate = spawnableFruits[nextFruitIndex];
+        Fruit fruitToInstantiate = skinData.GetSpawnablePrefabs()[nextFruitIndex];
 
         currentFruit = Instantiate(
             fruitToInstantiate,
@@ -142,16 +141,16 @@ public class FruitManager : MonoBehaviour
 
     private void SetNextFruitIndex()
     {
-        nextFruitIndex = UnityEngine.Random.Range(0, spawnableFruits.Length);
+        nextFruitIndex = UnityEngine.Random.Range(0, skinData.GetSpawnablePrefabs().Length);
         onNextFruitIndexSet?.Invoke();
     }
     public string GetNextFruitName()
     {
-        return spawnableFruits[nextFruitIndex].name;
+        return skinData.GetSpawnablePrefabs()[nextFruitIndex].name;
     }
     public Sprite GetNextFruitSprite()
     {
-        return spawnableFruits[nextFruitIndex].GetSprite();
+        return skinData.GetSpawnablePrefabs()[nextFruitIndex].GetSprite();
     }
 
 
@@ -204,11 +203,11 @@ public class FruitManager : MonoBehaviour
     private void MergeProcessedCallBack(FruitType fruitType, Vector2 spawnPosition)
     {
 
-        for (int i = 0; i < fruitPrefabs.Length; i++)
+        for (int i = 0; i < skinData.GetObjectPrefabs().Length; i++)
         {
-            if (fruitPrefabs[i].GetFruitType()== fruitType)
+            if (skinData.GetObjectPrefabs()[i].GetFruitType()== fruitType)
                { 
-                SpawnMergedFruit(fruitPrefabs[i], spawnPosition);
+                SpawnMergedFruit(skinData.GetObjectPrefabs()[i], spawnPosition);
                 break;
             }
 
