@@ -11,11 +11,14 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallBack;
+        SettingsManager.onSFXValueChanged += SFXValueChangedCallBack;
+        
     }
 
     private void OnDestroy()
     {
         MergeManager.onMergeProcessed -= MergeProcessedCallBack;
+        SettingsManager.onSFXValueChanged -= SFXValueChangedCallBack;
     }
     void Start()
     {
@@ -36,5 +39,10 @@ public class AudioManager : MonoBehaviour
     private void MergeProcessedCallBack(FruitType fruitType, Vector2 mergePos)
     {
         PlayMergeSound();
+    }
+    private void SFXValueChangedCallBack(bool sfxActive)
+    {
+        mergeSource.mute = !sfxActive;
+        //mergeSource.volume = sfxActive ? 1 : 0;
     }
 }

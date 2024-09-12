@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameoverPanel;
+    [SerializeField] private GameObject settingsPanel;
+
 
 
 
@@ -68,6 +70,7 @@ public class UIManager : MonoBehaviour
         menuPanel.SetActive(true);
         gamePanel.SetActive(false);
         gameoverPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }  
     private void SetGame()
     {
@@ -80,7 +83,8 @@ public class UIManager : MonoBehaviour
         gameoverPanel.SetActive(true);
         menuPanel.SetActive(false);
         gamePanel.SetActive(false);
-        
+        settingsPanel.SetActive(false);
+
     }
 
 
@@ -92,6 +96,19 @@ public class UIManager : MonoBehaviour
     public void NextButtonCallBack()
     {
         SceneManager.LoadScene(0);
+
+    }
+    public void SettingsButtonCallBack() 
+    { 
+     
+        settingsPanel.SetActive(true);
+    
+    }
+
+    public void CloseSettingsButtonCallBack()
+    {
+
+        settingsPanel.SetActive(false);
 
     }
 }
