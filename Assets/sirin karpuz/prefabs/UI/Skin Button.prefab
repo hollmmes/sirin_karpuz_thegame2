@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4107658741585318414}
   - component: {fileID: 4177569698876133625}
   - component: {fileID: 6264109256647398943}
+  - component: {fileID: -6430220958834691854}
   m_Layer: 0
   m_Name: Skin Button
   m_TagString: Untagged
@@ -272,3 +273,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-6430220958834691854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415762744986748564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e07da4136c1be643bd6ac8fbfec9fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 1259118739371851128}
+  selectionOutline: {fileID: 6329101490010818701}
+  button: {fileID: 6264109256647398943}
