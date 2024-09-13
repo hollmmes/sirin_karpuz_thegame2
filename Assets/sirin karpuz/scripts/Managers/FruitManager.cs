@@ -33,10 +33,15 @@ public class FruitManager : MonoBehaviour
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallBack;
+
+        ShopManager.onSkinSelected += SkinSelectedCallBack;
+        
     }
     private void OnDestroy()
     {
         MergeManager.onMergeProcessed -= MergeProcessedCallBack;
+
+        ShopManager.onSkinSelected -= SkinSelectedCallBack;
     }
 
 
@@ -59,9 +64,12 @@ public class FruitManager : MonoBehaviour
 
         if (canControl) 
         ManagePlayerInput();
+                
+    }
 
-
-        
+    private void SkinSelectedCallBack(SkinDataSO skinDataSO)
+    {
+        skinData = skinDataSO;
     }
 
     private void ManagePlayerInput()

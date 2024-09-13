@@ -13,6 +13,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -52,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5923187057833283129, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 23195bcbd71f2c643a4b6f69fc6b3ca7, type: 2}
     - target: {fileID: 7464580499182878478, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Name
       value: 01_Ping Pong
@@ -59,14 +75,14 @@ PrefabInstance:
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e0adaaa74ee9c0e429959899f8d46c4f, type: 3}
+      objectReference: {fileID: 21300000, guid: 652179ce7c8197142b0f88f51432bd0c, type: 3}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.r
@@ -117,6 +133,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0036409497}
+  m_Offset: {x: 0.048347384, y: -0.0036408682}
   serializedVersion: 2
-  m_Radius: 1.2901103
+  m_Radius: 2.927029

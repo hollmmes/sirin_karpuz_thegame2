@@ -13,6 +13,18 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621423871135372966, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -52,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5923187057833283129, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 23195bcbd71f2c643a4b6f69fc6b3ca7, type: 2}
     - target: {fileID: 7464580499182878478, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Name
       value: 05_Volleyball
@@ -59,14 +75,14 @@ PrefabInstance:
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e0adaaa74ee9c0e429959899f8d46c4f, type: 3}
+      objectReference: {fileID: 21300000, guid: 3331276db890b97479dab5addf28f42e, type: 3}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8021983075849829526, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       propertyPath: m_Color.r
@@ -78,21 +94,21 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7464580499182878478, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2392466658051836442}
+      addedObject: {fileID: 152900294000349859}
   m_SourcePrefab: {fileID: 100100000, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
 --- !u!1 &9155209928158747562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7464580499182878478, guid: 109a4623f9f8ca44faba61730ff2d35a, type: 3}
   m_PrefabInstance: {fileID: 1772820140532065444}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &2392466658051836442
-CircleCollider2D:
+--- !u!60 &152900294000349859
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9155209928158747562}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -117,6 +133,40 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0036409497}
-  serializedVersion: 2
-  m_Radius: 1.2901103
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.2475202, y: 2.2002974}
+      - {x: 1.4678029, y: 2.5895152}
+      - {x: -0.053324744, y: 2.7997098}
+      - {x: -1.9146014, y: 2.4191275}
+      - {x: -3.4439883, y: 1.4155052}
+      - {x: -4.1616583, y: 0.66841567}
+      - {x: -4.3857317, y: -0.1617694}
+      - {x: -4.0272408, y: -0.7325608}
+      - {x: -3.5741754, y: -1.2513427}
+      - {x: -2.961669, y: -1.7926788}
+      - {x: -2.454151, y: -2.088811}
+      - {x: -1.399156, y: -2.6080952}
+      - {x: -0.49152094, y: -2.7867951}
+      - {x: 0.32116175, y: -2.795363}
+      - {x: 0.8538338, y: -2.7181022}
+      - {x: 1.9370968, y: -2.4666076}
+      - {x: 2.9410386, y: -1.7770017}
+      - {x: 3.8254213, y: -1.0900184}
+      - {x: 4.3008823, y: -0.586656}
+      - {x: 4.38697, y: -0.08543254}
+      - {x: 4.2727375, y: 0.3779419}
+      - {x: 3.9970055, y: 0.87327254}
+      - {x: 3.3116431, y: 1.5344323}
+      - {x: 2.5907924, y: 2.0554023}
+  m_UseDelaunayMesh: 0

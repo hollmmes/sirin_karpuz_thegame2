@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameoverPanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject ShopPanel;
 
 
 
@@ -111,4 +112,7 @@ public class UIManager : MonoBehaviour
         settingsPanel.SetActive(false);
 
     }
+    public void ShowButtonCallBack() => ShopPanel.SetActive(true);
+    public void CloseButtonCallBack() => ShopPanel.SetActive(false);
+
 }
